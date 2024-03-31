@@ -1,7 +1,7 @@
 module.exports = function Cart(cart) {
   this.items = cart.items || {};
   this.totalItems = cart.totalItems || 0;
-  this.totalPrice = cart.totalPrice || 0;
+  this.totalPrice = parseFloat((cart.totalPrice || 0).toFixed(2));
 
   this.add = function (item, id) {
     var cartItem = this.items[id];
@@ -9,7 +9,6 @@ module.exports = function Cart(cart) {
       cartItem = this.items[id] = { item: item, quantity: 0, price: 0 };
     }
     cartItem.quantity++;
-    var originalPrice = cartItem.item.price * cartItem.quantity;
     if (
       cartItem.item.id == "2" ||
       cartItem.item.id == "5" ||
@@ -29,10 +28,14 @@ module.exports = function Cart(cart) {
     } else {
       cartItem.price = cartItem.item.price * cartItem.quantity;
     }
-    var minusTotal = originalPrice - cartItem.price;
+
     this.totalItems++;
-    this.totalPrice += cartItem.item.price;
-    this.totalPrice -= minusTotal;
+    // this.totalPrice += cartItem.item.price;
+
+    this.totalPrice = Object.values(this.items).reduce(
+      (total, item) => total + item.price,
+      0
+    );
   };
   this.remove = function (id) {
     this.totalItems -= this.items[id].quantity;
@@ -46,5 +49,10 @@ module.exports = function Cart(cart) {
       arr.push(this.items[id]);
     }
     return arr;
+  };
+  this.discount = function (hasMemberCard) {
+    if (hasMemberCard) {
+      this.totalPrice *= 0.9;
+    }
   };
 };
