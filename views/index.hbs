@@ -1,0 +1,28 @@
+<div style="padding: 10px; margin-top:20px">
+  {{#each products}}
+    <div
+      class="row"
+      style="box-sizing:border-box; border:1px solid rgb(170, 170, 170); border-radius: 5px; padding: 10px; margin-bottom:15px"
+    >
+      <div class="col-md-8">
+        <h3>{{this.name}}</h3>
+        <div class="price" style="color: #009169;"><i
+            class="fa fa-money"
+            aria-hidden="true"
+          ></i>
+          {{this.price}}.00 Baht</div>
+          {{#if this.description}}
+        <div class="alert alert-success description">{{{this.description}}}</div>
+        {{/if}}
+      </div>
+
+      <div class="col-md-4" style="display: flex; justify-content:end">
+        <a href="/add/{{this.id}}" class="btn btn-default" role="button"><i
+            class="fa fa-shopping-cart"
+            aria-hidden="true"
+          ></i>
+          Add to cart</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Red set",
+    "description": "",
+    "price": 50
+  },
+  {
+    "id": 2,
+    "name": "Green set",
+    "description": "Order doubles of Green set will get a 5% discount for each bundles",
+    "price": 40
+  },
+  {
+    "id": 3,
+    "name": "Blue set",
+    "description": "",
+    "price": 30
+  },
+  {
+    "id": 4,
+    "name": "Yellow set",
+    "description": "",
+    "price": 50
+  },
+  {
+    "id": 5,
+    "name": "Pink set",
+    "description": "Order doubles of Pink set will get a 5% discount for each bundles",
+    "price": 80
+  },
+  {
+    "id": 6,
+    "name": "Purple set",
+    "description": "",
+    "price": 90
+  },
+  {
+    "id": 7,
+    "name": "Orange set",
+    "description": "Order doubles of Orange set will get a 5% discount for each bundles",
+    "price": 120
+  }
+]
